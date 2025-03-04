@@ -23,18 +23,6 @@ public class MyConfig {
 		return new UserDetailServiceImpl();
 	}
 
-//	@Bean
-//	public UserDetailsService getUserDetailService() {
-//		
-//		UserDetails normalUser = User.withUsername("abc@gmail.com").password(passwordEncoder().encode("0987")).roles("USER").build();
-//		
-//		UserDetails adminUser = User.withUsername("admin@gmail.com").password(passwordEncoder().encode("admin")).roles("ADMIN").build();
-//		
-//		return new InMemoryUserDetailsManager(normalUser,adminUser);
-//		
-//		
-//	}
-
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -49,20 +37,8 @@ public class MyConfig {
 	}
 
 
-
-
-//	@SuppressWarnings("deprecation")
-//	@Bean
-//	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//		http
-//		.authorizeHttpRequests(
-//				authorize -> authorize.requestMatchers("/user/**").hasRole("USER").requestMatchers("/admin/**").hasRole("ADMIN").requestMatchers("/**").permitAll().anyRequest().authenticated())
-//				.formLogin(withDefaults()).httpBasic(withDefaults());
-//		return http.build();
-//
-//	}
 	
-	 @SuppressWarnings("deprecation")
+	@SuppressWarnings("deprecation")
 	@Bean
 	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 	        http
